@@ -1,0 +1,512 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/12/2018 9:37:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SFJK4QA"
+  DTS:CreatorName="DESKTOP-SFJK4QA\Samra"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{78F8371C-0430-41AA-92A8-7252EBAA2B75}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="5146"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DimRezervacija_Load"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{66FD4735-CCA6-43D3-AA2A-913546FC02B2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1C33C79A-B553-4507-BC0A-116333DC4452}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanjeDWSamra;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EC8C3614-7F9E-4F72-A6D0-9E7679792B53}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanje;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Punjenje tabele DimRezervacija"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{2594C684-3E06-4987-A7E5-3707A63482A0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Punjenje tabele DimRezervacija"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - DimRezervacija"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimRezervacija]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input].Columns[RezervacijaID]"
+                      cachedDataType="i4"
+                      cachedName="RezervacijaID"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input].ExternalColumns[RezervacijaAltKey]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[RezervacijaID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input].ExternalColumns[RezervacijaKey]"
+                      dataType="i4"
+                      name="RezervacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input].ExternalColumns[RezervacijaAltKey]"
+                      dataType="i4"
+                      name="RezervacijaAltKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Rezervacije"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Rezervacije]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[RezervacijaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[RezervacijaID]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[RezervacijaID]"
+                      name="RezervacijaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[ZapolsenikID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[ZapolsenikID]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[ZapolsenikID]"
+                      name="ZapolsenikID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[HotelID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[HotelID]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[HotelID]"
+                      name="HotelID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[SobaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[SobaID]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[SobaID]"
+                      name="SobaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumRezervacije]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumRezervacije]"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumRezervacije]"
+                      name="DatumRezervacije"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumDolaska]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumDolaska]"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumDolaska]"
+                      name="DatumDolaska"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumOdlaska]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumOdlaska]"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[DatumOdlaska]"
+                      name="DatumOdlaska"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[Aktivna]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[Aktivna]"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].Columns[Aktivna]"
+                      name="Aktivna"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[RezervacijaID]"
+                      dataType="i4"
+                      name="RezervacijaID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[ZapolsenikID]"
+                      dataType="i4"
+                      name="ZapolsenikID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[HotelID]"
+                      dataType="i4"
+                      name="HotelID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[SobaID]"
+                      dataType="i4"
+                      name="SobaID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumRezervacije]"
+                      dataType="wstr"
+                      length="10"
+                      name="DatumRezervacije" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumDolaska]"
+                      dataType="wstr"
+                      length="10"
+                      name="DatumDolaska" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[DatumOdlaska]"
+                      dataType="wstr"
+                      length="10"
+                      name="DatumOdlaska" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output].ExternalColumns[Aktivna]"
+                      dataType="bool"
+                      name="Aktivna" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[RezervacijaID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[RezervacijaID]"
+                      name="RezervacijaID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ZapolsenikID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ZapolsenikID]"
+                      name="ZapolsenikID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[HotelID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[HotelID]"
+                      name="HotelID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[SobaID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[SobaID]"
+                      name="SobaID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumRezervacije]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumRezervacije]"
+                      name="DatumRezervacije" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumDolaska]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumDolaska]"
+                      name="DatumDolaska" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumOdlaska]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[DatumOdlaska]"
+                      name="DatumOdlaska" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[Aktivna]"
+                      dataType="bool"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[Aktivna]"
+                      name="Aktivna" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Punjenje tabele DimRezervacija.Paths[OLE DB Source Output]"
+              endId="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Punjenje tabele DimRezervacija\Source - Rezervacije.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="227,42"
+          Id="Package\Punjenje tabele DimRezervacija"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Punjenje tabele DimRezervacija">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Punjenje tabele DimRezervacija\Source - Rezervacije"
+          TopLeft="25,5.5" />
+        <EdgeLayout
+          Id="Package\Punjenje tabele DimRezervacija.Paths[OLE DB Source Output]"
+          TopLeft="112.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimRezervacija\Destination - DimRezervacija">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimRezervacija\Source - Rezervacije">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

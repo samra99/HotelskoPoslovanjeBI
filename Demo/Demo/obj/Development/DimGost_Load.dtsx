@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/4/2018 3:52:02 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SFJK4QA"
+  DTS:CreatorName="DESKTOP-SFJK4QA\Samra"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{C1CE423F-C0EE-48CD-BDC8-7A26FA384227}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="5146"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DimGost_Load"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{3E805B8D-EAF6-4DA8-B4BA-C21993F3991D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{87BC02EB-CC7E-4E3A-8E9F-7B6F6C71DD79}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanjeDWSamra;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{41D6FD4A-9D29-4595-A2D8-C360EA8D32C2}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanje;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Punjenje tabele DimGost"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{03D459D2-50E0-4F61-A811-B34C1B2F430B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Punjenje tabele DimGost"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Punjenje tabele DimGost\Destination - DimGost"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - DimGost"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimGost]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimGost\Destination - DimGost.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].Columns[Ime]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Ime"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Ime]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Ime]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].Columns[Prezime]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Prezime"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Prezime]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Prezime]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].Columns[Spol]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Spol"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Spol]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Spol]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].Columns[JMBG]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="JMBG"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[JMBG]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[JMBG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[GostKey]"
+                      dataType="i4"
+                      name="GostKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Ime]"
+                      dataType="wstr"
+                      length="20"
+                      name="Ime" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Prezime]"
+                      dataType="wstr"
+                      length="50"
+                      name="Prezime" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[Spol]"
+                      dataType="wstr"
+                      length="5"
+                      name="Spol" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input].ExternalColumns[JMBG]"
+                      dataType="wstr"
+                      length="13"
+                      name="JMBG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimGost\Destination - DimGost.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Destination - DimGost.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Destination - DimGost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Destination - DimGost.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Punjenje tabele DimGost\Source - Gosti"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Gosti"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Gosti]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimGost\Source - Gosti.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[GostID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[GostID]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[GostID]"
+                      name="GostID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Ime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Ime]"
+                      length="20"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Ime]"
+                      name="Ime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Prezime]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Prezime]"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Prezime]"
+                      name="Prezime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Spol]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Spol]"
+                      length="5"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Spol]"
+                      name="Spol"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[JMBG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[JMBG]"
+                      length="13"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[JMBG]"
+                      name="JMBG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Telefon]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Telefon]"
+                      length="30"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Telefon]"
+                      name="Telefon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="100"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[GradID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].Columns[GradID]"
+                      name="GradID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[GostID]"
+                      dataType="i4"
+                      name="GostID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Ime]"
+                      dataType="wstr"
+                      length="20"
+                      name="Ime" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Prezime]"
+                      dataType="wstr"
+                      length="50"
+                      name="Prezime" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Spol]"
+                      dataType="wstr"
+                      length="5"
+                      name="Spol" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[JMBG]"
+                      dataType="wstr"
+                      length="13"
+                      name="JMBG" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Telefon]"
+                      dataType="wstr"
+                      length="30"
+                      name="Telefon" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="100"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                      dataType="i4"
+                      name="GradID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[GostID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[GostID]"
+                      name="GostID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Ime]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Ime]"
+                      name="Ime" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Prezime]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Prezime]"
+                      name="Prezime" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Spol]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Spol]"
+                      name="Spol" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[JMBG]"
+                      dataType="wstr"
+                      length="13"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[JMBG]"
+                      name="JMBG" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Telefon]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Telefon]"
+                      name="Telefon" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                      name="GradID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Punjenje tabele DimGost.Paths[OLE DB Source Output]"
+              endId="Package\Punjenje tabele DimGost\Destination - DimGost.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Punjenje tabele DimGost\Source - Gosti.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Punjenje tabele DimGost"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Punjenje tabele DimGost">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182,42"
+          Id="Package\Punjenje tabele DimGost\Destination - DimGost"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Punjenje tabele DimGost\Source - Gosti"
+          TopLeft="24,5.5" />
+        <EdgeLayout
+          Id="Package\Punjenje tabele DimGost.Paths[OLE DB Source Output]"
+          TopLeft="96.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimGost\Destination - DimGost">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimGost\Source - Gosti">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

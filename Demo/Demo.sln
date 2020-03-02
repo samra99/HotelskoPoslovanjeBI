@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Demo", "Demo\Demo.dtproj", "{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "HotelskoPoslovanje_SSRS", "HotelskoPoslovanje_SSRS\HotelskoPoslovanje_SSRS.rptproj", "{77D26E05-547C-4771-843F-7E69EEB9F879}"
+EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "HotelskoPoslovanje_OLAP", "HotelskoPoslovanje_OLAP\HotelskoPoslovanje_OLAP.dwproj", "{A5C167A4-2CE1-49BE-AA2F-34291CE22814}"
+EndProject
+Project("{6870E480-7721-4708-BFB8-9AE898AA21B3}") = "HotelskoPoslovanje_TABULAR", "HotelskoPoslovanje_TABULAR\HotelskoPoslovanje_TABULAR.smproj", "{8CE414BB-95B2-4C99-9E03-51BA72086E22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		DebugLocal|x86 = DebugLocal|x86
+		Development|x86 = Development|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Debug|x86.ActiveCfg = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Debug|x86.Build.0 = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.DebugLocal|x86.ActiveCfg = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.DebugLocal|x86.Build.0 = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Development|x86.ActiveCfg = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Development|x86.Build.0 = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Release|x86.ActiveCfg = Development
+		{FE74A2B7-A7FE-4B37-A84D-F97DFED1453B}.Release|x86.Build.0 = Development
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Debug|x86.ActiveCfg = Debug
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Debug|x86.Build.0 = Debug
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Debug|x86.Deploy.0 = Debug
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.DebugLocal|x86.ActiveCfg = DebugLocal
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.DebugLocal|x86.Build.0 = DebugLocal
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Development|x86.ActiveCfg = DebugLocal
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Development|x86.Build.0 = DebugLocal
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Release|x86.ActiveCfg = Release
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Release|x86.Build.0 = Release
+		{77D26E05-547C-4771-843F-7E69EEB9F879}.Release|x86.Deploy.0 = Release
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Debug|x86.ActiveCfg = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Debug|x86.Build.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Debug|x86.Deploy.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.DebugLocal|x86.ActiveCfg = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.DebugLocal|x86.Build.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.DebugLocal|x86.Deploy.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Development|x86.ActiveCfg = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Development|x86.Build.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Development|x86.Deploy.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Release|x86.ActiveCfg = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Release|x86.Build.0 = Development
+		{A5C167A4-2CE1-49BE-AA2F-34291CE22814}.Release|x86.Deploy.0 = Development
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Debug|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Debug|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Debug|x86.Deploy.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.DebugLocal|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.DebugLocal|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.DebugLocal|x86.Deploy.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Development|x86.Deploy.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Release|x86.ActiveCfg = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Release|x86.Build.0 = Development|x86
+		{8CE414BB-95B2-4C99-9E03-51BA72086E22}.Release|x86.Deploy.0 = Development|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

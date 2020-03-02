@@ -1,0 +1,212 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="7a13803a-ca4f-4307-987c-bcfa256d3f74" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>HotelskoPoslovanjeDWSamra</ID>
+  <Name>HotelskoPoslovanjeDWSamra</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>HotelskoPoslovanjeDWSamra</DataSourceID>
+  <Schema>
+    <xs:schema id="HotelskoPoslovanjeDWSamra" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="HotelskoPoslovanjeDWSamra" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="9b00351d-a92b-4b34-bb33-e28ee89e7703">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DimFakultativniIzleti" msprop:design-time-name="85b09dca-9cc8-43d6-9cf5-224824de5c28" msprop:DbTableName="DimFakultativniIzleti" msprop:FriendlyName="DimFakultativniIzleti" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FakultativniIzletKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="286cdece-f7f6-4ac7-8227-8163b16853aa" msprop:DbColumnName="FakultativniIzletKey" msprop:FriendlyName="FakultativniIzletKey" type="xs:int" />
+                  <xs:element name="Naziv" msprop:design-time-name="a32d372b-2773-4011-81f7-848f88a7193a" msprop:DbColumnName="Naziv" msprop:FriendlyName="Naziv">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGost" msprop:design-time-name="f81d0b61-c473-434b-853d-11f9b7179351" msprop:DbTableName="DimGost" msprop:FriendlyName="DimGost" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="GostKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="353fd9c0-eefd-4860-8821-ea52dad716ae" msprop:DbColumnName="GostKey" msprop:FriendlyName="GostKey" type="xs:int" />
+                  <xs:element name="Ime" msprop:design-time-name="946a5a3f-6b32-4848-ac8b-bfb7a21a6f93" msprop:DbColumnName="Ime" msprop:FriendlyName="Ime">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Prezime" msprop:design-time-name="50c2e357-8b11-47fd-8d85-645326324b12" msprop:DbColumnName="Prezime" msprop:FriendlyName="Prezime">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Spol" msprop:design-time-name="cf1cb043-0a42-423f-98e9-4fd6c9868439" msprop:DbColumnName="Spol" msprop:FriendlyName="Spol">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="JMBG" msprop:design-time-name="742b9cfa-9307-41cd-bf79-f59ad097caaa" msprop:DbColumnName="JMBG" msprop:FriendlyName="JMBG">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="13" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimHotel" msprop:design-time-name="fa90559e-67b4-4b6e-a2e5-e69492f08006" msprop:DbTableName="DimHotel" msprop:FriendlyName="DimHotel" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="HotelKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="9080f63c-c0af-4841-a5e6-6ad1872fa0b7" msprop:DbColumnName="HotelKey" msprop:FriendlyName="HotelKey" type="xs:int" />
+                  <xs:element name="Naziv" msprop:design-time-name="ac2cde2c-a19d-4146-ac5e-52b31f6d1d40" msprop:DbColumnName="Naziv" msprop:FriendlyName="Naziv">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Grad" msprop:design-time-name="cf9d5de8-e49b-473f-b1ea-0e7df695e735" msprop:DbColumnName="Grad" msprop:FriendlyName="Grad">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimRezervacija" msprop:design-time-name="ce6cdddf-5ac3-4645-b442-fa6785eb0d61" msprop:DbTableName="DimRezervacija" msprop:FriendlyName="DimRezervacija" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="RezervacijaKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="60e45670-6a95-457d-963b-020ccf70efce" msprop:DbColumnName="RezervacijaKey" msprop:FriendlyName="RezervacijaKey" type="xs:int" />
+                  <xs:element name="RezervacijaAltKey" msprop:design-time-name="15e66400-3566-4d75-a2ab-e5195b9846a0" msprop:DbColumnName="RezervacijaAltKey" msprop:FriendlyName="RezervacijaAltKey" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimVrijeme" msprop:design-time-name="744646f1-7d8a-4f4f-bdfe-65cb48c6b5dc" msprop:DbTableName="DimVrijeme" msprop:FriendlyName="DimVrijeme" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DatumKey" msprop:design-time-name="f41742a2-cd5a-46f7-ada2-9a49510552b7" msprop:DbColumnName="DatumKey" msprop:FriendlyName="DatumKey">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Dan" msprop:design-time-name="5062aeb5-e247-4c8a-bb0a-3a19bc04dfc2" msprop:DbColumnName="Dan" msprop:FriendlyName="Dan" type="xs:int" />
+                  <xs:element name="Mjesec" msprop:design-time-name="b0c21a3f-0d5d-4b5f-8e79-241e43391f70" msprop:DbColumnName="Mjesec" msprop:FriendlyName="Mjesec" type="xs:int" />
+                  <xs:element name="Godina" msprop:design-time-name="69fcc9aa-ff00-48c7-b7cf-7a54c423b202" msprop:DbColumnName="Godina" msprop:FriendlyName="Godina" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactEvidencijaFakultativnihIzleta" msprop:design-time-name="b3d36f45-5654-4774-9dbe-a50b6c6620ae" msprop:DbTableName="FactEvidencijaFakultativnihIzleta" msprop:FriendlyName="FactEvidencijaFakultativnihIzleta" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="EvidencijaFakultativnihIzletaKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="418de247-7d76-4acc-aa68-23b1a04b2381" msprop:DbColumnName="EvidencijaFakultativnihIzletaKey" msprop:FriendlyName="EvidencijaFakultativnihIzletaKey" type="xs:int" />
+                  <xs:element name="GostKey" msprop:design-time-name="85994cdf-f768-4fa3-851d-2a5dae2cf7a7" msprop:DbColumnName="GostKey" msprop:FriendlyName="GostKey" type="xs:int" minOccurs="0" />
+                  <xs:element name="RezervacijaKey" msprop:design-time-name="c718362d-8848-41b0-beba-856f20e325e9" msprop:DbColumnName="RezervacijaKey" msprop:FriendlyName="RezervacijaKey" type="xs:int" minOccurs="0" />
+                  <xs:element name="HotelKey" msprop:design-time-name="650b7f65-6def-4892-941d-9bd75ace0873" msprop:DbColumnName="HotelKey" msprop:FriendlyName="HotelKey" type="xs:int" minOccurs="0" />
+                  <xs:element name="FakultativniIzletiKey" msprop:design-time-name="e18a90af-87d7-40b5-b254-e18792366266" msprop:DbColumnName="FakultativniIzletiKey" msprop:FriendlyName="FakultativniIzletiKey" type="xs:int" minOccurs="0" />
+                  <xs:element name="DatumKey" msprop:design-time-name="12d60d24-847b-4271-8252-d9c3113d2891" msprop:DbColumnName="DatumKey" msprop:FriendlyName="DatumKey" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="UkupanIznos" msprop:design-time-name="312b6fa5-8325-4989-a66f-2c8dd1cb9682" msprop:DbColumnName="UkupanIznos" msprop:FriendlyName="UkupanIznos" type="xs:decimal" />
+                  <xs:element name="BrojPosjetilaca" msprop:design-time-name="456287f1-7803-4107-a22a-ef7e060290e4" msprop:DbColumnName="BrojPosjetilaca" msprop:FriendlyName="BrojPosjetilaca" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimFakultativniIzleti" />
+          <xs:field xpath="FakultativniIzletKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimGost_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGost" />
+          <xs:field xpath="GostKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimHotel_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimHotel" />
+          <xs:field xpath="HotelKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimRezervacija_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimRezervacija" />
+          <xs:field xpath="RezervacijaKey" />
+        </xs:unique>
+        <xs:unique name="dbo_DimVrijeme_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimVrijeme" />
+          <xs:field xpath="DatumKey" />
+        </xs:unique>
+        <xs:unique name="dbo_FactEvidencijaFakultativnihIzleta_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="EvidencijaFakultativnihIzletaKey" />
+        </xs:unique>
+        <xs:keyref name="FK__FactEvide__Hotel__4316F928" refer="dbo_DimHotel_Constraint1">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="HotelKey" />
+        </xs:keyref>
+        <xs:keyref name="FK__FactEvide__Datum__44FF419A" refer="dbo_DimVrijeme_Constraint1">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="DatumKey" />
+        </xs:keyref>
+        <xs:keyref name="FK__FactEvide__GostK__412EB0B6" refer="dbo_DimGost_Constraint1">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="GostKey" />
+        </xs:keyref>
+        <xs:keyref name="FK__FactEvide__Fakul__440B1D61" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="FakultativniIzletiKey" />
+        </xs:keyref>
+        <xs:keyref name="FK__FactEvide__Rezer__4222D4EF" refer="dbo_DimRezervacija_Constraint1">
+          <xs:selector xpath=".//dbo_FactEvidencijaFakultativnihIzleta" />
+          <xs:field xpath="RezervacijaKey" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <HotelskoPoslovanjeDWSamra xmlns="" />
+  </Schema>
+</DataSourceView>

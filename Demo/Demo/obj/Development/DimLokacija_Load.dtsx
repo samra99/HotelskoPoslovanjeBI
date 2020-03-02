@@ -1,0 +1,443 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/6/2018 3:00:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SFJK4QA"
+  DTS:CreatorName="DESKTOP-SFJK4QA\Samra"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{B7990E04-A205-42E5-ABB8-9F8D55F7B4D8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="5146"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DimLokacija_Load"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{D99645EC-91D9-448D-9E10-BE44606A47F5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{426FD9FE-BFDC-44D5-B9CC-8885FAB05717}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanjeDWSamra;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{46D2F850-6543-4AAA-B7D4-D052BC7D7E79}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanje;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Punjenje tabele DimLokacija"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{078388CC-39A9-4F4B-8845-C94CF94CE41F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Punjenje tabele DimLokacija"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - DimLokacija"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimLokacija]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].Columns[Grad]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Grad"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[Grad]"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Grad]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].Columns[Drzava]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Drzava"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[Drzava]"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Drzava]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].Columns[GradID]"
+                      cachedDataType="i4"
+                      cachedName="GradID"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[LokacijaAltKey]"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[GradID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[LokacijaKey]"
+                      dataType="i4"
+                      name="LokacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[LokacijaAltKey]"
+                      dataType="i4"
+                      name="LokacijaAltKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[Grad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Grad" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input].ExternalColumns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      name="Drzava" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Punjenje tabele DimLokacija\Source - Query"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Query"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT G.GradID,
+G.Naziv AS Grad,
+D.Naziv AS Drzava
+FROM dbo.Gradovi AS G
+JOIN dbo.Država AS D
+ON G.DrzavaID=D.DrzavaID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele DimLokacija\Source - Query.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[GradID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[GradID]"
+                      name="GradID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Grad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Grad]"
+                      name="Grad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Drzava]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].Columns[Drzava]"
+                      name="Drzava"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                      dataType="i4"
+                      name="GradID" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Grad" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      name="Drzava" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                      name="GradID" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                      name="Grad" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                      name="Drzava" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Punjenje tabele DimLokacija.Paths[OLE DB Source Output]"
+              endId="Package\Punjenje tabele DimLokacija\Destination - DimLokacija.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Punjenje tabele DimLokacija\Source - Query.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Punjenje tabele DimLokacija"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Punjenje tabele DimLokacija">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Punjenje tabele DimLokacija\Source - Query"
+          TopLeft="30,5.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Punjenje tabele DimLokacija\Destination - DimLokacija"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package\Punjenje tabele DimLokacija.Paths[OLE DB Source Output]"
+          TopLeft="105,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimLokacija\Destination - DimLokacija">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele DimLokacija\Source - Query">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

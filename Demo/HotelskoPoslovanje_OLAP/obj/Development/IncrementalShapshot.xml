@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>HotelskoPoslovanje_OLAP</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>s70jWbFjaD0YP+JVfUsSqqTfthk=13.01.2018. 13:58:1613.01.2018. 13:58:16</TimeStamp>
+        <ID>
+          <String>HotelskoPoslovanjeDWSamra</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>yL41B9oCdttO9/r7S/vch7i/PBk=13.01.2018. 13:58:4513.01.2018. 13:58:44</TimeStamp>
+        <ID>
+          <String>HotelskoPoslovanjeDWSamra</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>anW+Jr3QJrrSdRj4DZzd5/Cp9FE=13.01.2018. 13:59:2313.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>Dim Rezervacija</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>G6KIi0+iwF1WKdKGH++Nqa6u25E=13.01.2018. 14:00:1213.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>Dim Fakultativni Izleti</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>87PxcIKuNlJTAGP//E2QJ2wSOsk=13.01.2018. 14:00:2613.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>Dim Gost</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>D0daJZxD/MDzWJOdaWTmK2nMYsU=13.01.2018. 14:00:3813.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>Dim Hotel</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>D7nJ5Gyz42NGE0+pFS+BwIpyWZg=13.01.2018. 14:06:3613.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>Dim Vrijeme</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>Nmi0DWkCkdiWhZDG2uMLMI8K3DM=13.01.2018. 14:07:3913.01.2018. 13:59:229MJ0jJGNiaGWCJAPTZC5eim2VYE=13.01.2018. 13:59:2313.01.2018. 13:59:22</TimeStamp>
+        <ID>
+          <String>HotelskoPoslovanjeDWSamra_Cube</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>5Vbusw2xjnn8LHyzS9i3xxcMxM8=13.01.2018. 13:57:1313.01.2018. 13:57:12</TimeStamp>
+      <ID>
+        <String>HotelskoPoslovanje_OLAP</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2018-01-13T13:10:54.306667Z</LastDeployed>
+</DeploymentSnapshot>

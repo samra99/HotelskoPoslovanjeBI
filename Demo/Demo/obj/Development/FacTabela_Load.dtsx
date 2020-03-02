@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/6/2018 3:20:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SFJK4QA"
+  DTS:CreatorName="DESKTOP-SFJK4QA\Samra"
+  DTS:Description="DTS Wizard-generated package"
+  DTS:DTSID="{F0822CFD-551B-44F8-A809-94ED957716D5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.1000.169"
+  DTS:LocaleID="5146"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="FacTabela_Load"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{DE8E132E-5039-4DC8-9D31-50F4F75F7618}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{04F69CC1-ECD7-4721-9853-BA5B72033A31}"
+      DTS:ObjectName="DestinationConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanjeDWSamra;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5AA02FFD-D286-49E7-AEFE-1FA66872F64C}"
+      DTS:ObjectName="SourceConnectionOLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HotelskoPoslovanje;Provider=SQLOLEDB;Integrated Security=SSPI;Auto Translate=false;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DTSID="{38DD51E1-0F5F-48FA-A3C5-BA8F11878286}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Punjenje tabele FactEvidencijaFakultativnihIzleta"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferSize="3145728"
+          version="1">
+          <components>
+            <component
+              refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Destination - FactEvidencijaFakultativnihIzleta"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactEvidencijaFakultativnihIzleta]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[DestinationConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[GostKey]"
+                      cachedDataType="i4"
+                      cachedName="GostKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[GostKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[GostKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[RezervacijaKey]"
+                      cachedDataType="i4"
+                      cachedName="RezervacijaKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[RezervacijaKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[RezervacijaKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[HotelKey]"
+                      cachedDataType="i4"
+                      cachedName="HotelKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[HotelKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[HotelKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[LokacijaKey]"
+                      cachedDataType="i4"
+                      cachedName="LokacijaKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[LokacijaKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[LokacijaKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[FakultativniIzletiKey]"
+                      cachedDataType="i4"
+                      cachedName="FakultativniIzletiKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[FakultativniIzletiKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[FakultativniIzletiKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[DatumKey]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="DatumKey"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[DatumKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[DatumKey]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[BrojPosjetilaca]"
+                      cachedDataType="i4"
+                      cachedName="BrojPosjetilaca"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[BrojPosjetilaca]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[BrojPosjetilaca]" />
+                    <inputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].Columns[UkupanIznos]"
+                      cachedDataType="numeric"
+                      cachedName="UkupanIznos"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[UkupanIznos]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[UkupanIznos]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[EvidencijaFakultativnihIzletaKey]"
+                      dataType="i4"
+                      name="EvidencijaFakultativnihIzletaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[GostKey]"
+                      dataType="i4"
+                      name="GostKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[RezervacijaKey]"
+                      dataType="i4"
+                      name="RezervacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[HotelKey]"
+                      dataType="i4"
+                      name="HotelKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[LokacijaKey]"
+                      dataType="i4"
+                      name="LokacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[FakultativniIzletiKey]"
+                      dataType="i4"
+                      name="FakultativniIzletiKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[DatumKey]"
+                      dataType="wstr"
+                      length="50"
+                      name="DatumKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[UkupanIznos]"
+                      dataType="numeric"
+                      name="UkupanIznos"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input].ExternalColumns[BrojPosjetilaca]"
+                      dataType="i4"
+                      name="BrojPosjetilaca" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Source - Query"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  G.GostID AS 'GostKey',
+R.RezervacijaID AS 'RezervacijaKey',
+H.HotelID AS 'HotelKey',
+GRA.GradID AS 'LokacijaKey',
+FI.FakultativniIzletID AS 'FakultativniIzletiKey',
+R.DatumDolaska AS 'DatumKey',
+COUNT(FIR.FakultativniIzletID) AS BrojPosjetilaca,
+SUM(FI.Cijena) AS UkupanIznos
+FROM dbo.Rezervacije AS R
+JOIN dbo.Hoteli AS H
+ON R.HotelID=H.HotelID
+JOIN dbo.FakultativniIzletiRezervacije AS FIR
+ON FIR.RezervacijaID=R.RezervacijaID
+JOIN dbo.FakultativniIzleti AS FI
+ON FIR.FakultativniIzletID=FI.FakultativniIzletID
+JOIN dbo.GostiRazervacije AS GR
+ON R.RezervacijaID= GR.RezrevacijaID
+JOIN dbo.Gosti AS G
+ON G.GostID=GR.GostID
+JOIN dbo.Gradovi AS GRA
+ON H.GradID=GRA.GradID
+GROUP BY G.GostID,R.RezervacijaID,H.HotelID,GRA.GradID,FI.FakultativniIzletID,R.DatumDolaska</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[SourceConnectionOLEDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[GostKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[GostKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[GostKey]"
+                      name="GostKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[RezervacijaKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RezervacijaKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[RezervacijaKey]"
+                      name="RezervacijaKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[HotelKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[HotelKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[HotelKey]"
+                      name="HotelKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[LokacijaKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[LokacijaKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[LokacijaKey]"
+                      name="LokacijaKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[FakultativniIzletiKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FakultativniIzletiKey]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[FakultativniIzletiKey]"
+                      name="FakultativniIzletiKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[DatumKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[DatumKey]"
+                      length="10"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[DatumKey]"
+                      name="DatumKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[BrojPosjetilaca]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[BrojPosjetilaca]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[BrojPosjetilaca]"
+                      name="BrojPosjetilaca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[UkupanIznos]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[UkupanIznos]"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].Columns[UkupanIznos]"
+                      name="UkupanIznos"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[GostKey]"
+                      dataType="i4"
+                      name="GostKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[RezervacijaKey]"
+                      dataType="i4"
+                      name="RezervacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[HotelKey]"
+                      dataType="i4"
+                      name="HotelKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[LokacijaKey]"
+                      dataType="i4"
+                      name="LokacijaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[FakultativniIzletiKey]"
+                      dataType="i4"
+                      name="FakultativniIzletiKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[DatumKey]"
+                      dataType="wstr"
+                      length="10"
+                      name="DatumKey" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[BrojPosjetilaca]"
+                      dataType="i4"
+                      name="BrojPosjetilaca" />
+                    <externalMetadataColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output].ExternalColumns[UkupanIznos]"
+                      dataType="numeric"
+                      name="UkupanIznos"
+                      precision="38"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[GostKey]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[GostKey]"
+                      name="GostKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[RezervacijaKey]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[RezervacijaKey]"
+                      name="RezervacijaKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[HotelKey]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[HotelKey]"
+                      name="HotelKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[LokacijaKey]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[LokacijaKey]"
+                      name="LokacijaKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[FakultativniIzletiKey]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[FakultativniIzletiKey]"
+                      name="FakultativniIzletiKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[DatumKey]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[DatumKey]"
+                      name="DatumKey" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[BrojPosjetilaca]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[BrojPosjetilaca]"
+                      name="BrojPosjetilaca" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[UkupanIznos]"
+                      dataType="numeric"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[UkupanIznos]"
+                      name="UkupanIznos"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta.Paths[OLE DB Source Output]"
+              endId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta.Inputs[Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="308,42"
+          Id="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="295,42"
+          Id="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query"
+          TopLeft="78,5.5" />
+        <EdgeLayout
+          Id="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta.Paths[OLE DB Source Output]"
+          TopLeft="153,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Destination - FactEvidencijaFakultativnihIzleta">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Punjenje tabele FactEvidencijaFakultativnihIzleta\Source - Query">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

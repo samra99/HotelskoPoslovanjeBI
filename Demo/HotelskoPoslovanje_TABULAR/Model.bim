@@ -1,0 +1,496 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "bs-Latn-BA",
+    "dataSources": [
+      {
+        "name": "SqlServer localhost",
+        "connectionString": "Provider=SQLNCLI11;Data Source=.;Initial Catalog=HotelskoPoslovanje;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "Samra",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "FakultativniIzleti",
+        "columns": [
+          {
+            "name": "FakultativniIzletID",
+            "dataType": "int64",
+            "sourceColumn": "FakultativniIzletID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Naziv",
+            "dataType": "string",
+            "sourceColumn": "Naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Cijena",
+            "dataType": "double",
+            "sourceColumn": "Cijena",
+            "sourceProviderType": "Numeric"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FakultativniIzleti",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[FakultativniIzleti].* FROM [dbo].[FakultativniIzleti] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FakultativniIzleti].* FROM [dbo].[FakultativniIzleti] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FakultativniIzleti"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "FakultativniIzletiRezervacije",
+        "columns": [
+          {
+            "name": "FakultativniIzletID",
+            "dataType": "int64",
+            "sourceColumn": "FakultativniIzletID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RezervacijaID",
+            "dataType": "int64",
+            "sourceColumn": "RezervacijaID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "type": "calculated",
+            "name": "Cijene",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "RELATED(FakultativniIzleti[Cijena])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FakultativniIzletiRezervacije",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[FakultativniIzletiRezervacije].* FROM [dbo].[FakultativniIzletiRezervacije] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Ukupan iznos",
+            "expression": "SUM(FakultativniIzletiRezervacije[Cijene])"
+          },
+          {
+            "name": "Broj posjetilaca",
+            "expression": "COUNT((FakultativniIzletiRezervacije[RezervacijaID]))"
+          },
+          {
+            "name": "Prosjecno",
+            "expression": "[Ukupan iznos]/[Broj posjetilaca]"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FakultativniIzletiRezervacije].* FROM [dbo].[FakultativniIzletiRezervacije] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FakultativniIzletiRezervacije"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Gosti",
+        "columns": [
+          {
+            "name": "GostID",
+            "dataType": "int64",
+            "sourceColumn": "GostID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Ime",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Ime",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Prezime",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Prezime",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Spol",
+            "dataType": "string",
+            "sourceColumn": "Spol",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "JMBG",
+            "dataType": "string",
+            "sourceColumn": "JMBG",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Telefon",
+            "dataType": "string",
+            "sourceColumn": "Telefon",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "GradID",
+            "dataType": "int64",
+            "sourceColumn": "GradID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "type": "calculated",
+            "name": "Gost",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "[Ime]& \" \"& [Prezime]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Gosti",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[Gosti].* FROM [dbo].[Gosti] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Gosti].* FROM [dbo].[Gosti] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Gosti"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "GostiRazervacije",
+        "columns": [
+          {
+            "name": "GostID",
+            "dataType": "int64",
+            "sourceColumn": "GostID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "RezrevacijaID",
+            "dataType": "int64",
+            "sourceColumn": "RezrevacijaID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "GostiRazervacije",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[GostiRazervacije].* FROM [dbo].[GostiRazervacije] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[GostiRazervacije].* FROM [dbo].[GostiRazervacije] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "GostiRazervacije"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Gradovi",
+        "columns": [
+          {
+            "name": "GradID",
+            "dataType": "int64",
+            "sourceColumn": "GradID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Naziv",
+            "dataType": "string",
+            "sourceColumn": "Naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "DrzavaID",
+            "dataType": "int64",
+            "sourceColumn": "DrzavaID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Gradovi",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[Gradovi].* FROM [dbo].[Gradovi] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Gradovi].* FROM [dbo].[Gradovi] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Gradovi"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Hoteli",
+        "columns": [
+          {
+            "name": "HotelID",
+            "dataType": "int64",
+            "sourceColumn": "HotelID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Naziv",
+            "dataType": "string",
+            "sourceColumn": "Naziv",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "BrojZvjezdica",
+            "dataType": "int64",
+            "sourceColumn": "BrojZvjezdica",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Adresa",
+            "dataType": "string",
+            "sourceColumn": "Adresa",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "GradID",
+            "dataType": "int64",
+            "sourceColumn": "GradID",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Hoteli",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[Hoteli].* FROM [dbo].[Hoteli] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Hoteli].* FROM [dbo].[Hoteli] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Hoteli"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Rezervacije",
+        "columns": [
+          {
+            "name": "RezervacijaID",
+            "dataType": "int64",
+            "sourceColumn": "RezervacijaID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ZapolsenikID",
+            "dataType": "int64",
+            "sourceColumn": "ZapolsenikID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "HotelID",
+            "dataType": "int64",
+            "sourceColumn": "HotelID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SobaID",
+            "dataType": "int64",
+            "sourceColumn": "SobaID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DatumDolaska",
+            "dataType": "dateTime",
+            "sourceColumn": "DatumDolaska",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "DatumOdlaska",
+            "dataType": "dateTime",
+            "sourceColumn": "DatumOdlaska",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Rezervacije",
+            "dataView": "full",
+            "source": {
+              "query": " SELECT [dbo].[Rezervacije].* FROM [dbo].[Rezervacije] ",
+              "dataSource": "SqlServer localhost"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Rezervacije].* FROM [dbo].[Rezervacije] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Rezervacije"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "44154296-31db-4ae2-afb9-d465c6683a7e",
+        "fromTable": "FakultativniIzletiRezervacije",
+        "fromColumn": "FakultativniIzletID",
+        "toTable": "FakultativniIzleti",
+        "toColumn": "FakultativniIzletID"
+      },
+      {
+        "name": "bcb0c77b-fdc2-49ff-bf95-3c8af2841993",
+        "fromTable": "FakultativniIzletiRezervacije",
+        "fromColumn": "RezervacijaID",
+        "toTable": "Rezervacije",
+        "toColumn": "RezervacijaID"
+      },
+      {
+        "name": "43e1519f-f63f-4274-941e-fe3512cb9cfb",
+        "fromTable": "Hoteli",
+        "fromColumn": "GradID",
+        "toTable": "Gradovi",
+        "toColumn": "GradID"
+      },
+      {
+        "name": "ce43e42c-3dbd-44ea-ac82-1a4c6abfc212",
+        "fromTable": "Rezervacije",
+        "fromColumn": "HotelID",
+        "toTable": "Hoteli",
+        "toColumn": "HotelID"
+      },
+      {
+        "name": "9c196c5f-af76-456c-9f71-57217fca83d6",
+        "fromTable": "Gosti",
+        "fromColumn": "GradID",
+        "toTable": "Gradovi",
+        "toColumn": "GradID",
+        "isActive": false
+      },
+      {
+        "name": "c49c1f62-085e-42e5-a6da-f55a62a668f4",
+        "fromTable": "GostiRazervacije",
+        "fromColumn": "RezrevacijaID",
+        "toTable": "Rezervacije",
+        "toColumn": "RezervacijaID"
+      },
+      {
+        "name": "6d018de5-8528-416f-8ea5-26699cd0dd25",
+        "fromTable": "GostiRazervacije",
+        "fromColumn": "GostID",
+        "toTable": "Gosti",
+        "toColumn": "GostID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
